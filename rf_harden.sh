@@ -4,7 +4,7 @@ echo "Amex one-app Demo"
 IMAGE=oneamex/one-app-dev
 TAG=5.0.0
 APP=hello-oneapp
-PORT_EXPORT='-p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3005:3005 -p 9229:9229'
+PORT_EXPORT="-p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3005:3005 -p 9229:9229"
 
 # pull the latest Redis image
 docker pull $IMAGE:$TAG
@@ -13,7 +13,7 @@ docker pull $IMAGE:$TAG
 rfstub $IMAGE:$TAG
 
 # run the stub. add the SYS_PTRACE capability so that RapidFort can trace the runtime behavior
-docker run --rm -d -p "${PORT_EXPORT}" \
+docker run --rm -d "${PORT_EXPORT}" \
     --name my-rf-oneapp-test \
     -e NODE_ENV=development \
     --cap-add=SYS_PTRACE \
@@ -35,7 +35,7 @@ rfharden $IMAGE:$TAG-rfstub
 docker images | grep one-app
 
 # run the hardened image and test it again
-docker run --rm -d -p "${PORT_EXPORT}" \
+docker run --rm -d "${PORT_EXPORT}" \
     --name my-rf-oneapp-test \
     -e NODE_ENV=development \
     -v${PWD}/static:/opt/one-app/static \
