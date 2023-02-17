@@ -1,0 +1,19 @@
+{
+  "key": "not-used-in-development",
+  "modules": {
+    "rf-oneapp-demo": {
+      "browser": {
+        "integrity": "sha256-CUosnCBdLwG9ba9swhtri3f+aWAw6cuS5acSr6180Fk= sha384-W05ZA9lEFz1MOiB2tvI47JrnWOXifBh1XJCR8XQUvVGO0Na98bxG/fR0eFv5f+zg",
+        "url": "[one-app-dev-cdn-url]/static/modules/rf-oneapp-demo/1.0.0/rf-oneapp-demo.browser.js"
+      },
+      "node": {
+        "integrity": "sha256-2dyrIJ4EtOdqWUvsMQPUkorFt2pyrJX+bcup2J1pMiw= sha384-M8GJcgkXnTg4gWtxYQNEETofrdeI7NbJN5YBvXMDz45NuMCkwTZXTSEl28dwQ0Gj",
+        "url": "[one-app-dev-cdn-url]/static/modules/rf-oneapp-demo/1.0.0/rf-oneapp-demo.node.js"
+      },
+      "legacyBrowser": {
+        "integrity": "sha256-Akg1rmGxk6ppo74vLSblmF+fSw50KkoLSqrqmxmSwGI= sha384-qmuRi6ULvGzPYcjedAUWeAW+iXhbfK/PCUA0+W8PPivrGdyKm9Dn0xgswGsY0SDf",
+        "url": "[one-app-dev-cdn-url]/static/modules/rf-oneapp-demo/1.0.0/rf-oneapp-demo.legacy.browser.js"
+      }
+    }
+  }
+}
