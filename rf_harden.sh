@@ -23,6 +23,8 @@ sleep 15
 
 # run some tests to exercise the application.
 # TODO:add test case for hello world
+curl localhost:3000
+curl localhost:3000
 
 # stop the container
 docker stop my-rf-oneapp-test
@@ -44,6 +46,8 @@ sleep 15
 
 # run some tests to exercise the application.
 # TODO:add test case for hello world
+curl localhost:3000
+curl localhost:3000
 
 # stop the container
 docker stop my-rf-oneapp-test
