@@ -1,18 +1,18 @@
 {
   "key": "not-used-in-development",
   "modules": {
-    "rf-oneapp-demo": {
+    "hello-oneapp": {
       "browser": {
-        "integrity": "sha256-CUosnCBdLwG9ba9swhtri3f+aWAw6cuS5acSr6180Fk= sha384-W05ZA9lEFz1MOiB2tvI47JrnWOXifBh1XJCR8XQUvVGO0Na98bxG/fR0eFv5f+zg",
-        "url": "[one-app-dev-cdn-url]/static/modules/rf-oneapp-demo/1.0.0/rf-oneapp-demo.browser.js"
+        "integrity": "sha256-SjYtuLS/VkelrVGHm2KGQmI88Dsyd6SWN4jtGZWTEy4= sha384-QqzlM2oBjdooCWKmKxJ8DllUXoXLEXnPUw4NzF9OmfqIQT0aQqxvBoSqc7NQDwGn",
+        "url": "[one-app-dev-cdn-url]/static/modules/hello-oneapp/1.0.0/hello-oneapp.browser.js"
       },
       "node": {
-        "integrity": "sha256-2dyrIJ4EtOdqWUvsMQPUkorFt2pyrJX+bcup2J1pMiw= sha384-M8GJcgkXnTg4gWtxYQNEETofrdeI7NbJN5YBvXMDz45NuMCkwTZXTSEl28dwQ0Gj",
-        "url": "[one-app-dev-cdn-url]/static/modules/rf-oneapp-demo/1.0.0/rf-oneapp-demo.node.js"
+        "integrity": "sha256-dTZnZj0BsKb5QI6qELq9TifPEDdc/5W10nE8emqDL14= sha384-fXWj/oGus4kPY/VDt33PIXNod8VxmNRVU3AFaMDsIGQxzePbqQezBdmHCwbN54Wg",
+        "url": "[one-app-dev-cdn-url]/static/modules/hello-oneapp/1.0.0/hello-oneapp.node.js"
       },
       "legacyBrowser": {
-        "integrity": "sha256-Akg1rmGxk6ppo74vLSblmF+fSw50KkoLSqrqmxmSwGI= sha384-qmuRi6ULvGzPYcjedAUWeAW+iXhbfK/PCUA0+W8PPivrGdyKm9Dn0xgswGsY0SDf",
-        "url": "[one-app-dev-cdn-url]/static/modules/rf-oneapp-demo/1.0.0/rf-oneapp-demo.legacy.browser.js"
+        "integrity": "sha256-cyubDUkUE5gGoFsuWyQvC39kJq5ls+b+l9M20tlY9wU= sha384-HcWLSlDE86AhqC6Cp7AcKjA4ikWpE+DHLTXe7Ru0z2P2KvN1/2BRnIUeuVi9LIle",
+        "url": "[one-app-dev-cdn-url]/static/modules/hello-oneapp/1.0.0/hello-oneapp.legacy.browser.js"
       }
     }
   }
