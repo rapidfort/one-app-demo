@@ -1,0 +1,78 @@
+name: One App Demo
+
+on:
+  schedule:
+  - cron: '0 5 * * *'
+  workflow_dispatch:
+
+permissions: read-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: actions-cicd
+    steps:
+      - name: install the RapidFort CLI tools
+        run: curl  https://frontrow.rapidfort.com/cli/ | bash
+
+      - name: install puppeteer
+        run: npm i --save puppeteer
+
+      - name: authenticate
+        env:
+          RF_ACCESS_ID: ${{ secrets.RF_ACCESS_ID }}
+          RF_SECRET_ACCESS_KEY: ${{ secrets.RF_SECRET_ACCESS_KEY }}
+        run: rflogin
+
+      - name: pull the latest Redis image
+        run: docker pull oneamex/one-app-dev:5.0.0
+
+      - name: run rfstub to generate the stub. this creates a new image, redis:latest-rfstub
+        run: rfstub oneamex/one-app-dev:5.0.0
+
+      - name: run the stub. add the SYS_PTRACE capability so that RapidFort can trace the runtime behavior
+        run: |
+          docker run --rm -d -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3005:3005 -p 9229:9229 \
+              --name my-rf-oneapp-test \
+              -e NODE_ENV=development \
+              --cap-add=SYS_PTRACE \
+              -v${PWD}/static:/opt/one-app/static \
+              oneamex/one-app-dev:5.0.0-rfstub /bin/sh -c "node lib/server/index.js  --root-module-name=hello-oneapp "
+          sleep 15
+
+      - name: run some tests to exercise the application.
+        run: |
+          curl localhost:3000
+          curl localhost:3000
+          node puppy_test.js
+
+      - name: stop the container
+        run: docker stop my-rf-oneapp-test
+
+      - name: run rfharden to optimize and secure the image. this creates a new image, redis:latest-rfhardened
+        run: rfharden oneamex/one-app-dev:5.0.0-rfstub
+
+      - name: check out the various images we created
+        run: docker images | grep one-app
+
+      - name: run the hardened image and test it again
+        run: |
+          docker run --rm -d -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3005:3005 -p 9229:9229 \
+              --name my-rf-oneapp-test \
+              -e NODE_ENV=development \
+              --cap-add=SYS_PTRACE \
+              -v${PWD}/static:/opt/one-app/static \
+              oneamex/one-app-dev:5.0.0-rfhardened /bin/sh -c "node lib/server/index.js  --root-module-name=hello-oneapp "
+          sleep 15
+
+      - name: run some tests to exercise the application.
+        run: |
+          curl localhost:3000
+          curl localhost:3000
+          node puppy_test.js
+
+      - name: stop the container
+        run: docker stop my-rf-oneapp-test
+
+      - name: for more information, please view the Getting Started documentation
+        run: echo "https://docs.rapidfort.com/getting-started/docker"
