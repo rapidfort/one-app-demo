@@ -32,7 +32,7 @@ jobs:
 
       - name: run the stub. add the SYS_PTRACE capability so that RapidFort can trace the runtime behavior
         run: |
-          docker run --rm -d -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3005:3005 -p 9229:9229 \
+          docker run -i -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3005:3005 -p 9229:9229 \
               --name my-rf-oneapp-test \
               -e NODE_ENV=development \
               --cap-add=SYS_PTRACE \
