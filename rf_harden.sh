@@ -33,7 +33,7 @@ node puppy_test.js
 docker stop my-rf-oneapp-test
 
 # run rfharden to optimize and secure the image. this creates a new image, redis:latest-rfhardened
-rfharden $IMAGE:$TAG-rfstub
+rfharden $IMAGE:$TAG-rfstub --put-meta --profile ${PWD}/.rfignore
 
 # check out the various images we created
 docker images | grep one-app
