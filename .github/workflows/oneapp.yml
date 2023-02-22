@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: actions-cicd
     steps:
+      - uses: actions/checkout@v3
+
       - name: install the RapidFort CLI tools
         run: curl  https://frontrow.rapidfort.com/cli/ | bash
 
