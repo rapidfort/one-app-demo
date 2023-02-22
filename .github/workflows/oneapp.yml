@@ -36,7 +36,7 @@ jobs:
         run: |
           echo ${GITHUB_WORKSPACE}
           ls -lrt ${GITHUB_WORKSPACE}/static
-          docker run -i -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3005:3005 -p 9229:9229 \
+          docker run --rm -d -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3005:3005 -p 9229:9229 \
               --name my-rf-oneapp-test \
               -e NODE_ENV=development \
               --cap-add=SYS_PTRACE \
