@@ -36,7 +36,7 @@ jobs:
               --name my-rf-oneapp-test \
               -e NODE_ENV=development \
               --cap-add=SYS_PTRACE \
-              -v${PWD}/static:/opt/one-app/static \
+              -v${GITHUB_WORKSPACE}/static:/opt/one-app/static \
               oneamex/one-app-dev:5.0.0-rfstub /bin/sh -c "node lib/server/index.js  --root-module-name=hello-oneapp "
           sleep 15
 
@@ -61,7 +61,7 @@ jobs:
               --name my-rf-oneapp-test \
               -e NODE_ENV=development \
               --cap-add=SYS_PTRACE \
-              -v${PWD}/static:/opt/one-app/static \
+              -v${GITHUB_WORKSPACE}/static:/opt/one-app/static \
               oneamex/one-app-dev:5.0.0-rfhardened /bin/sh -c "node lib/server/index.js  --root-module-name=hello-oneapp "
           sleep 15
 
