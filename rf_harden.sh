@@ -5,6 +5,9 @@ IMAGE=oneamex/one-app-dev
 TAG=5.0.0
 APP=hello-oneapp
 
+# add pupyteer
+npm i --save puppeteer
+
 # pull the latest Redis image
 docker pull $IMAGE:$TAG
 
@@ -22,9 +25,9 @@ docker run --rm -d -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3005:3005 -p 9229:9
 sleep 15
 
 # run some tests to exercise the application.
-# TODO:add test case for hello world
 curl localhost:3000
 curl localhost:3000
+node puppy_test.js
 
 # stop the container
 docker stop my-rf-oneapp-test
@@ -45,9 +48,9 @@ docker run --rm -d -p 3000:3000 -p 3001:3001 -p 3002:3002 -p 3005:3005 -p 9229:9
 sleep 15
 
 # run some tests to exercise the application.
-# TODO:add test case for hello world
 curl localhost:3000
 curl localhost:3000
+node puppy_test.js
 
 # stop the container
 docker stop my-rf-oneapp-test
