@@ -2,7 +2,7 @@
 set -x
 echo "Amex one-app Demo"
 IMAGE=oneamex/one-app-dev
-TAG=5.0.0
+TAG=5.15.5
 APP=hello-oneapp
 
 # add pupyteer
